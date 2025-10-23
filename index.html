@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initial Page</title>
+</head>
+<body bgcolor="#383838">
+    <div class="allpage">
+        <a href="index_2.html" class="link-wrapper"> 
+        <div class="container">
+            <div class="overlay"></div>
+            <div class="card"></div>
+        </div>
+    </a>
+</div>
+    
+    <script>
+        var container = document.querySelector('.container')
+        var overlay = document.querySelector('.overlay')
+        container.addEventListener('mousemove', function(e){
+            var x = e.offsetX
+            var y = e.offsetY
+            var rotateY = -1/10 * x + 20
+            var rotateX = 1/10 * y - 20
+
+            overlay.style = `background-position: ${x/5 + y/5}%`
+
+            container.style = `transform : perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+        })
+        container.addEventListener('mouseout', function(e){
+            container.style = `transform : perspective(350px) rotateX(0deg) rotateY(0deg); transition: all 0.2s`
+            overlay.style = `filter: opacity(0); transition: all 0.2s`
+        })
+
+    </script>
+
+    <style>
+        body{
+            margin: 0; 
+    /* 뷰포트(브라우저 창) 높이만큼 높이 설정 */
+    min-height: 100vh; 
+    /* Flexbox를 사용하여 body의 자식인 .allpage의 높이가 100vh를 따라가도록 함 */
+    display: flex;
+        }
+        .container {
+            width: 400px; height: 400px; transition: all 0.1s;
+            position: relative;
+            overflow: hidden;
+            border-radius: 111px;
+        }
+        .overlay {
+            position: absolute;
+            width: 400px; height: 400px;
+            background: linear-gradient(105deg, transparent 20%,
+            rgba(255, 219, 112, 0.8) 25%
+            , rgba(132, 50 , 225, 0.6) 35%,
+            transparent 54%);
+            filter: brightness(1, 1) opacity(0.8);
+            mix-blend-mode: color-dodge;
+            background-size: 150% 150%;
+            background-position: 100%;
+            transition: all 0.1s;
+        }
+        .card{
+            width: 400px; height: 400px;
+            background-image: url(rogo.png);
+            background-size: cover;
+            background-position: center;
+            border-radius: 111px;
+            z-index: 1;
+        }
+        .allpage {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</body>
+</html>
