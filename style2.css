@@ -123,3 +123,10 @@ body, html {
     z-index_2: 10; /* 다른 요소 위에 표시되도록 z-index_2 설정 (선택 사항) */
     cursor: pointer; /* 클릭 가능한 요소임을 나타내기 위해 커서 모양 변경 */
 }
+.footer {
+    font-size: 0.7em;
+    color: #999;
+    text-align: center;
+    padding: 20px;
+    margin-top: 300px;
+}

@@ -99,3 +99,10 @@ body, html {
 h2{
     color: #005eff;
 }
+.footer {
+    font-size: 0.7em;
+    color: #999;
+    text-align: center;
+    padding: 20px;
+    margin-top: 300px;
+}
